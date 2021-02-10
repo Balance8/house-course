@@ -8,6 +8,4 @@ export const setTokenCookie = (token: string) => {
   });
 };
 
-export const removeTokenCookie = () => {
-  cookies.remove("token");
-};
+export const removeTokenCookie = () => cookies.remove("token");

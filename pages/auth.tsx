@@ -16,9 +16,5 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     res.end();
   }
 
-  return {
-    props: {
-      data: null,
-    },
-  };
+  return { props: {} };
 };

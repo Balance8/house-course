@@ -9,10 +9,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
       <Head>
-        <title>Home Sweet Home </title>
+        <title>Home Sweet Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </AuthProvider>
   );
 }

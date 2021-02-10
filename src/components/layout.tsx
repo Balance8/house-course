@@ -12,7 +12,7 @@ const Layout: FunctionComponent<IProps> = ({ main }) => {
   return (
     <div className="mx-auto text-white bg-gray-900 max-w-screen-2xl">
       <nav className="bg-gray-800" style={{ height: "64px" }}>
-        <div className="flex items-center justify-between h-16 px-6 bg-gray-800">
+        <div className="flex items-center justify-between h-16 px-6">
           <Link href="/">
             <a>
               <img

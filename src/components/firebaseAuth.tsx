@@ -19,9 +19,6 @@ const FirebaseAuth: FunctionComponent = () => {
 
   useEffect(() => {
     setRenderAuth(true);
-    return () => {
-      cleanup;
-    };
   }, []);
 
   return (
