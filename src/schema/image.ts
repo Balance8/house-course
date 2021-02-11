@@ -17,6 +17,7 @@ class ImageSignature {
   timestamp!: number;
 }
 
+@Resolver()
 export class ImageResolver {
   @Authorized()
   @Mutation((_returns) => ImageSignature)

@@ -31,7 +31,7 @@ class CoordinatesInput {
 
 @InputType()
 class HouseInput {
-  @Field((_type) => Float)
+  @Field((_type) => String)
   address!: string;
 
   @Field((_type) => String)

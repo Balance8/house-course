@@ -13,7 +13,7 @@ export interface CoordinatesInput {
 }
 
 export interface HouseInput {
-  address: number;
+  address: string;
   bedrooms: number;
   coordinates: CoordinatesInput;
   image: string;

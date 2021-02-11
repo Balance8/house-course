@@ -109,7 +109,7 @@ export default function HouseForm({}: IProps) {
 
       if (houseData?.createHouse) {
         router.push(`/houses/${houseData.createHouse.id}`);
-      } 
+      }
     }
   };
 
