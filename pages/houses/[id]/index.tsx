@@ -46,8 +46,27 @@ function HouseData({ id }: { id: string }) {
   return (
     <Layout
       main={
-        <div>
-          <pre>{JSON.stringify(house, null, 2)}</pre>
+        <div className="sm:block md:flex">
+          <div className="p-4 sm:w-full md:w-1/2">
+            <h1 className="my-2 text-3xl">{house.address}</h1>
+
+            <Image
+              className="pb-2"
+              cloudName={process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}
+              publicId={house.publicId}
+              alt={house.address}
+              secure
+              dpr="auto"
+              quality="auto"
+              width={900}
+              height={Math.floor((9 / 16) * 900)}
+              crop="fill"
+              gravity="auto"
+            />
+
+            <p>{house.bedrooms} 🛌 house</p>
+          </div>
+          <div className="sm:w-full md:w-1/2">SingleMap</div>
         </div>
       }
     />
