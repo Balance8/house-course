@@ -16,6 +16,7 @@ const EDIT_HOUSE_QUERY = gql`
       id
       userId
       address
+      image
       publicId
       bedrooms
       latitude
@@ -40,12 +41,12 @@ function HouseData({ id }: { id: string }) {
     { variables: { id } }
   );
 
-  if (!user) return <Layout main={<div>Please Login</div>} />;
+  if (!user) return <Layout main={<div>Please login</div>} />;
   if (loading) return <Layout main={<div>loading...</div>} />;
   if (data && !data.house)
     return <Layout main={<div>Unable to load house</div>} />;
   if (user.uid !== data?.house?.userId)
-    return <Layout main={<div>You do not have permission</div>} />;
+    return <Layout main={<div>You don't have permission</div>} />;
 
   return <Layout main={<HouseForm house={data.house} />} />;
 }
@@ -58,9 +59,6 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     res.statusCode = 302;
     res.end();
   }
-  return {
-    props: {
-      data: null,
-    },
-  };
+
+  return { props: {} };
 };

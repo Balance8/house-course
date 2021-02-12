@@ -3,26 +3,28 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
+import { HouseInput } from "./globalTypes";
+
 // ====================================================
-// GraphQL query operation: EditHouseQuery
+// GraphQL mutation operation: UpdateHouseMutation
 // ====================================================
 
-export interface EditHouseQuery_house {
+export interface UpdateHouseMutation_updateHouse {
   __typename: "House";
   id: string;
-  userId: string;
-  address: string;
   image: string;
   publicId: string;
-  bedrooms: number;
   latitude: number;
   longitude: number;
+  bedrooms: number;
+  address: string;
 }
 
-export interface EditHouseQuery {
-  house: EditHouseQuery_house | null;
+export interface UpdateHouseMutation {
+  updateHouse: UpdateHouseMutation_updateHouse | null;
 }
 
-export interface EditHouseQueryVariables {
+export interface UpdateHouseMutationVariables {
   id: string;
+  input: HouseInput;
 }
