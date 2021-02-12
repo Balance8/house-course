@@ -32,6 +32,20 @@ const CREATE_HOUSE_MUTATION = gql`
   }
 `;
 
+const UPDATE_HOUSE_MUTATION = gql`
+  mutation UpdateHouseMutation($id: String!, $input: HouseInput!) {
+    updateHouse(id: $id, input: $input) {
+      id
+      image
+      publicId
+      latitude
+      longitude
+      bedrooms
+      address
+    }
+  }
+`;
+
 interface IUploadImageResponse {
   secure_url: string;
 }
@@ -63,7 +77,19 @@ interface IFormData {
   image: FileList;
 }
 
-interface IProps {}
+interface IHouse {
+  id: string;
+  address: string;
+  latitude: number;
+  longitude: number;
+  bedrooms: number;
+  image: string;
+  publicId: string;
+}
+
+interface IProps {
+  house?: IHouse;
+}
 
 export default function HouseForm({}: IProps) {
   const router = useRouter();
