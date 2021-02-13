@@ -1,5 +1,6 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import { useForm } from "react-hook-form";
+<<<<<<< Updated upstream
 import { useMutation, gql } from "@apollo/client";
 import { Router, useRouter } from "next/router";
 import Link from "next/link";
@@ -68,6 +69,22 @@ async function uploadImage(
   });
   return response.json();
 }
+=======
+// import { useMutation, gql } from "@apollo/client";
+// import { useRouter } from "next/router";
+// import Link from "next/link";
+// import { Image } from "cloudinary-react";
+import { SearchBox } from "./searchBox";
+// import {
+//   CreateHouseMutation,
+//   CreateHouseMutationVariables,
+// } from "src/generated/CreateHouseMutation";
+// import {
+//   UpdateHouseMutation,
+//   UpdateHouseMutationVariables,
+// } from "src/generated/UpdateHouseMutation";
+// import { CreateSignatureMutation } from "src/generated/CreateSignatureMutation";
+>>>>>>> Stashed changes
 
 interface IFormData {
   address: string;
@@ -77,6 +94,7 @@ interface IFormData {
   image: FileList;
 }
 
+<<<<<<< Updated upstream
 interface IHouse {
   id: string;
   address: string;
@@ -119,6 +137,17 @@ export default function HouseForm({ house }: IProps) {
     UpdateHouseMutation,
     UpdateHouseMutationVariables
   >(UPDATE_HOUSE_MUTATION);
+=======
+interface IProps {}
+
+export default function HouseForm({}: IProps) {
+  const [submitting, setSubmitting] = useState(false);
+  const { register, handleSubmit, setValue, errors, watch } = useForm<
+    IFormData
+  >({ defaultValues: {} });
+
+  const address = watch("address");
+>>>>>>> Stashed changes
 
   useEffect(() => {
     register({ name: "address" }, { required: "Please enter your address" });
@@ -126,6 +155,7 @@ export default function HouseForm({ house }: IProps) {
     register({ name: "longitude" }, { required: true, min: -180, max: 180 });
   }, [register]);
 
+<<<<<<< Updated upstream
   const handleCreate = async (data: IFormData) => {
     const { data: signatureData } = await createSignature();
     if (signatureData) {
@@ -306,6 +336,34 @@ export default function HouseForm({ house }: IProps) {
           </div>
         </>
       )}
+=======
+  const handleCreate = async (data: IFormData) => {};
+
+  const onSubmit = (data: IFormData) => {
+    setSubmitting(true);
+    handleCreate(data);
+  };
+
+  return (
+    <form className="max-w-xl mx-auto py4" onSubmit={handleSubmit(onSubmit)}>
+      <h1 className="text-xl">Add a New House</h1>
+      <div className="mt-4">
+        <label htmlFor="search" className="block">
+          Search for your address
+          <SearchBox
+            onSelectAddress={(address, latitude, longitude) => {
+              setValue("address", address);
+              setValue("latitude", latitude);
+              setValue("longitude", longitude);
+            }}
+            defaultValue=""
+          />
+          {errors.address && <p>{errors.address.message}</p>}
+          <h2>{address}</h2>
+        </label>
+      </div>
+       
+>>>>>>> Stashed changes
     </form>
   );
 }
