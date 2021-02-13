@@ -52,17 +52,10 @@ function HouseData({ id }: { id: string }) {
     <Layout
       main={
         <div className="sm:block md:flex">
-<<<<<<< HEAD
           <div className="p-4 sm:w-full md:w-1/2">
             <HouseNav house={house} />
 
             <h1 className="my-2 text-3xl">{house.address}</h1>
-=======
-          <div className="sm:w-full md:w-1/2 p-4">
-            <HouseNav house={house} />
-
-            <h1 className="text-3xl my-2">{house.address}</h1>
->>>>>>> b06b42f8fb13457c64805f461af655b680ce9a2f
 
             <Image
               className="pb-2"
