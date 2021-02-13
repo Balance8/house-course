@@ -42,7 +42,6 @@ function HouseData({ id }: { id: string }) {
     SHOW_HOUSE_QUERY,
     { variables: { id } }
   );
-
   if (loading || !data) return <Layout main={<div>Loading...</div>} />;
   if (!data.house)
     return <Layout main={<div>Unable to load house {id}</div>} />;
@@ -53,10 +52,10 @@ function HouseData({ id }: { id: string }) {
     <Layout
       main={
         <div className="sm:block md:flex">
-          <div className="sm:w-full md:w-1/2 p-4">
+          <div className="p-4 sm:w-full md:w-1/2">
             <HouseNav house={house} />
 
-            <h1 className="text-3xl my-2">{house.address}</h1>
+            <h1 className="my-2 text-3xl">{house.address}</h1>
 
             <Image
               className="pb-2"

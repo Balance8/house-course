@@ -15,6 +15,7 @@ import {
 import { Min, Max } from "class-validator";
 import { getBoundsOfDistance } from "geolib";
 import { Context, AuthorizedContext } from "./context";
+import { parse } from "graphql";
 
 @InputType()
 class CoordinatesInput {

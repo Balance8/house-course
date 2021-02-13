@@ -56,7 +56,6 @@ async function uploadImage(
   timestamp: number
 ): Promise<IUploadImageResponse> {
   const url = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/upload`;
-
   const formData = new FormData();
   formData.append("file", image);
   formData.append("signature", signature);
