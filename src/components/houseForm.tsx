@@ -57,7 +57,6 @@ async function uploadImage(
   timestamp: number
 ): Promise<IUploadImageResponse> {
   const url = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/upload`;
-
   const formData = new FormData();
   formData.append("file", image);
   formData.append("signature", signature);
@@ -229,7 +228,7 @@ export default function HouseForm({}: IProps) {
   };
 
   return (
-    <form className="mx-auto max-w-xl py-4" onSubmit={handleSubmit(onSubmit)}>
+    <form className="max-w-xl py-4 mx-auto" onSubmit={handleSubmit(onSubmit)}>
       <h1 className="text-xl">
         {house ? `Editing ${house.address}` : "Add a New House"}
       </h1>
@@ -254,7 +253,7 @@ export default function HouseForm({}: IProps) {
           <div className="mt-4">
             <label
               htmlFor="image"
-              className="p-4 border-dashed border-4 border-gray-600 block cursor-pointer"
+              className="block p-4 border-4 border-gray-600 border-dashed cursor-pointer"
             >
               Click to add image (16:9)
             </label>
@@ -284,7 +283,7 @@ export default function HouseForm({}: IProps) {
             {previewImage ? (
               <img
                 src={previewImage}
-                className="mt-4 object-cover"
+                className="object-cover mt-4"
                 style={{ width: "576px", height: `${(9 / 16) * 576}px` }}
               />
             ) : house ? (
@@ -325,7 +324,7 @@ export default function HouseForm({}: IProps) {
 
           <div className="mt-4">
             <button
-              className="bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded"
+              className="px-4 py-2 font-bold bg-blue-500 rounded hover:bg-blue-700"
               type="submit"
               disabled={submitting}
             >
